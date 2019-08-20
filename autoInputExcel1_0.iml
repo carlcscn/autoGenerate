@@ -10,19 +10,19 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../software/javajar/poi-3.17" />
+          <root url="file://$MODULE_DIR$/自动写入程序依赖Jar包/poi-3.17" />
         </CLASSES>
         <JAVADOC>
-          <root url="file://$MODULE_DIR$/../../../software/javajar/poi-3.17/docs/apidocs" />
+          <root url="file://$MODULE_DIR$/自动写入程序依赖Jar包/poi-3.17/docs/apidocs" />
         </JAVADOC>
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../../../software/javajar/poi-3.17" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/自动写入程序依赖Jar包/poi-3.17" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/依赖/jacob1.18.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/comm-2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -31,7 +31,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/依赖/comm-2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/commons-collections4-4.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -40,7 +40,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/依赖/commons-collections4-4.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/jacob1.18.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -49,7 +49,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/pdfbox-app-1.7.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/JNative.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -58,7 +58,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/依赖/JNative.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/pdfbox-app-1.7.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -67,7 +67,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../software/javajar/依赖/RXTXcomm.jar!/" />
+          <root url="jar://$MODULE_DIR$/自动写入程序依赖Jar包/RXTXcomm.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
