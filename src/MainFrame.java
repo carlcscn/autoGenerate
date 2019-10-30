@@ -10,6 +10,8 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 /**
  * Created by liu_changshi on 2019/6/10.
  */
@@ -31,6 +33,8 @@ public class MainFrame extends JFrame {
     private JTextField numberLocationColumn = new JTextField();
     private JTextField resultLocationRow = new JTextField();
     private JTextField resultLocationColumn = new JTextField();
+    private JTextField timeLocationRow = new JTextField();
+    private JTextField timeLocationColumn = new JTextField();
     private JTextField scanGunField = new JTextField();
     /*private JTextField numberOfProduntField = new JTextField();*/
     /*private JTextField resultPathField = new JTextField();*/
@@ -58,6 +62,9 @@ public class MainFrame extends JFrame {
     private JLabel resultLocationLabel = new JLabel("检测结果填入位置 要求同上");
     private JLabel resultLocationLabel0 = new JLabel("行");
     private JLabel resultLocationLabel1 = new JLabel("列");
+    private JLabel timeLocationLabel = new JLabel("日期填入位置 要求同上");
+    private JLabel timeLocationLabel0 = new JLabel("行");
+    private JLabel timeLocationLabel1 = new JLabel("列");
     private JLabel serialLabel = new JLabel("查询并填入串口号 格式如COM1 注意字母全部大写 回车确认");
 
 
@@ -213,6 +220,26 @@ public class MainFrame extends JFrame {
         resultLocationColumn.setBounds(180, 360, 60, 40);
         resultLocationColumn.setVisible(true);
         basicSettingPanel.add(resultLocationColumn);
+
+        //时间相关设置
+        timeLocationLabel.setFont(new Font("宋体",Font.PLAIN,25));
+        timeLocationLabel.setBounds(500,320,1000,30);
+        basicSettingPanel.add(timeLocationLabel);
+        timeLocationLabel0.setFont(new Font("宋体",Font.PLAIN,25));
+        timeLocationLabel0.setBounds(500,360,50,30);
+        basicSettingPanel.add(timeLocationLabel0);
+        timeLocationLabel1.setFont(new Font("宋体",Font.PLAIN,25));
+        timeLocationLabel1.setBounds(630,360,50,30);
+        basicSettingPanel.add(timeLocationLabel1);
+
+        timeLocationRow.setFont(new Font("宋体",Font.PLAIN,25));
+        timeLocationRow.setBounds(550, 360, 60, 40);
+        timeLocationRow.setVisible(true);
+        basicSettingPanel.add(timeLocationRow);
+        timeLocationColumn.setFont(new Font("宋体",Font.PLAIN,25));
+        timeLocationColumn.setBounds(680, 360, 60, 40);
+        timeLocationColumn.setVisible(true);
+        basicSettingPanel.add(timeLocationColumn);
 
         //串口名称相关设置
         serialLabel.setFont(new Font("宋体",Font.PLAIN,25));
@@ -379,6 +406,34 @@ public class MainFrame extends JFrame {
 
             }
         });
+
+        timeLocationRow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                String timelocation;
+
+                timelocation = timeLocationRow.getText();
+                txtFileOperation.writeToTxt("TimeLocationRow.txt",timelocation);
+                ShowUtils.message("日期行数设置成功");
+
+
+            }
+        });
+
+        timeLocationColumn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                String timelocation;
+
+                timelocation = timeLocationColumn.getText();
+                txtFileOperation.writeToTxt("TimeLocationColumn.txt",timelocation);
+                ShowUtils.message("日期列数设置成功");
+
+
+
+            }
+        });
+
         scanGunField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -420,6 +475,8 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 String numberlocation;
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+                String time = df.format(new Date());
 
                 String scanGunContent = scanGunField.getText();
 
@@ -431,7 +488,10 @@ public class MainFrame extends JFrame {
                 if(isRepeated==false){
                     int a1 = txtFileOperation.readIntFromTxt("NumLocationRow.txt")-1;
                     int b1 = txtFileOperation.readIntFromTxt("NumLocationColumn.txt")-1;
+                    int c1 = txtFileOperation.readIntFromTxt("TimeLocationRow.txt")-1;
+                    int d1 = txtFileOperation.readIntFromTxt("TimeLocationColumn.txt")-1;
                     try {
+                        excelOperation.setExcel(txtFileOperation.readStringFromTxt("path.txt"),c1,d1,time);
                         excelOperation.setExcel(txtFileOperation.readStringFromTxt("path.txt"),a1,b1,scanGunContent);
                     } catch (IOException e1) {
                         ShowUtils.errorMessage("关闭模板excel文件");
